@@ -7,8 +7,10 @@ interface Event {
   date: string
   time: string
   location: string
-  theme: 'dark' | 'gold' | 'red' | 'blue'
-  capacity?: number
+  backgroundImage?: string
+  fontFamily?: string
+  backgroundColor?: string
+  containerBackgroundColor?: string
   dress_code?: string
   details?: string
 }
@@ -28,36 +30,60 @@ const EventDetail = ({ event, onBackToPortal }: EventDetailProps) => {
     })
   }
 
+  const formatDateTime = (dateString: string, timeString: string) => {
+    const formattedDate = formatDate(dateString)
+    return `${formattedDate} at ${timeString}`
+  }
+
+  const containerStyle = {
+    background: event.backgroundColor || undefined,
+    backgroundImage: event.backgroundImage ? `url(${event.backgroundImage})` : undefined,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed',
+    fontFamily: event.fontFamily || undefined
+  };
+
+  const infoContainerStyle = {
+    background: event.containerBackgroundColor || 'rgba(255, 255, 255, 0.2)'
+  };
+
+  const descriptionContainerStyle = {
+    background: event.containerBackgroundColor || 'rgba(255, 255, 255, 0.25)'
+  };
+
   return (
-    <div className={`event-detail-container theme-${event.theme}`}>
-      <button className="back-button" onClick={onBackToPortal}>
-        ← Back to Portal
-      </button>
-      
-      <div className="event-detail">
+    <div 
+      className="event-detail-container"
+      style={containerStyle}
+    >
+      <div className="event-overlay">
+        <button className="back-button" onClick={onBackToPortal}>
+          ← Back to Portal
+        </button>
+        
+        <div className="event-detail">
         <div className="event-hero">
           <h1>{event.title}</h1>
-          <p className="event-tagline">{event.description}</p>
         </div>
 
-        <div className="event-info">
+        {event.details && (
+          <div className="event-description" style={descriptionContainerStyle}>
+            <h3>Details</h3>
+            <p>{event.details}</p>
+          </div>
+        )}
+
+        <div className="event-info" style={infoContainerStyle}>
           <div className="info-section">
             <h3>Date & Time</h3>
-            <p>{formatDate(event.date)}</p>
-            <p>{event.time}</p>
+            <p>{formatDateTime(event.date, event.time)}</p>
           </div>
 
           <div className="info-section">
             <h3>Location</h3>
             <p>{event.location}</p>
           </div>
-
-          {event.capacity && (
-            <div className="info-section">
-              <h3>Capacity</h3>
-              <p>Limited to {event.capacity} guests</p>
-            </div>
-          )}
 
           {event.dress_code && (
             <div className="info-section">
@@ -67,13 +93,7 @@ const EventDetail = ({ event, onBackToPortal }: EventDetailProps) => {
           )}
         </div>
 
-        {event.details && (
-          <div className="event-description">
-            <h3>Details</h3>
-            <p>{event.details}</p>
-          </div>
-        )}
-
+        </div>
       </div>
     </div>
   )

@@ -8,7 +8,9 @@ export interface Event {
   time: string;
   location: string;
   theme: 'dark' | 'gold' | 'red' | 'blue';
-  capacity?: number;
+  backgroundImage?: string;
+  fontFamily?: string;
+  backgroundColor?: string;
   dress_code?: string;
   details?: string;
 }

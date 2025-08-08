@@ -3,7 +3,8 @@ import { body, validationResult } from 'express-validator';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { EventConfig } from '../config/events';
-import { authRateLimit } from '../middleware/security';
+// Rate limiting disabled for development
+// import { authRateLimit } from '../middleware/security';
 
 const router = Router();
 
@@ -21,7 +22,7 @@ const authValidation = [
     .escape()
 ];
 
-router.post('/login', authRateLimit, authValidation, async (req: Request, res: Response) => {
+router.post('/login', authValidation, async (req: Request, res: Response) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

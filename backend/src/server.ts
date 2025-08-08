@@ -3,7 +3,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import compression from 'compression';
 import dotenv from 'dotenv';
-import { securityMiddleware, generalRateLimit, errorHandler, notFoundHandler } from './middleware/security';
+import { securityMiddleware, errorHandler, notFoundHandler } from './middleware/security';
 import authRoutes, { setEvents } from './routes/auth';
 import { initializeEvents } from './config/events';
 
@@ -46,7 +46,8 @@ app.use(express.urlencoded({
   limit: '1mb'
 }));
 
-app.use(generalRateLimit);
+// Rate limiting disabled for development
+// app.use(generalRateLimit);
 
 app.get('/health', (_req, res) => {
   res.json({ 

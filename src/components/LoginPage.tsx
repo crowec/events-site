@@ -41,7 +41,7 @@ const LoginPage = ({ onLogin, error: globalError }: LoginPageProps) => {
   return (
     <div className="login-container">
       <div className="login-form">
-        <h1>Enter</h1>
+        <h1>Welcome</h1>
         <form onSubmit={handleSubmit}>
           <input
             type="password"

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import rateLimit from 'express-rate-limit';
+// import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
 
 export const securityMiddleware = [
