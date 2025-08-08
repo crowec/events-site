@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  define: {
+    'process.env': process.env
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -11,6 +14,13 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    host: true
+    host: true,
+    watch: {
+      usePolling: true,
+      interval: 300,
+    },
+    hmr: {
+      port: 3000,
+    }
   }
 })

@@ -69,7 +69,7 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
       'linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)',
       'rgba(0, 0, 0, 0.4)',
       'Black tie required',
-      'Join us for an unforgettable night where shadows dance with light. An evening of timeless elegance in the city\'s most exclusive ballroom.'
+      'Join us for an **unforgettable night** where shadows dance with light. An evening of timeless elegance in the city\'s most exclusive ballroom.\n\n**What to Expect:**\n- Champagne reception with signature cocktails\n- Live classical quartet performance\n- Five-course tasting menu by *Michelin-starred chef*\n- Exclusive networking with distinguished guests\n\n*Prepare to be enchanted by an evening that blurs the line between dream and reality.*'
     ),
     createEventConfig(
       'golden-circle',
@@ -84,7 +84,7 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
       'linear-gradient(135deg, #1a1611 0%, #2d2417 50%, #3d3020 100%)',
       'rgba(212, 175, 55, 0.3)',
       'Cocktail attire in gold tones',
-      'An intimate gathering for the elite. Network with industry titans and visionaries in an atmosphere of refined luxury and golden splendor.'
+      'An **intimate gathering** for the elite. Network with industry titans and visionaries in an atmosphere of refined luxury and golden splendor.\n\n**Exclusive Features:**\n- *Private wine cellar* tastings\n- Curated art collection viewing\n- One-on-one mentorship sessions\n- Access to **invitation-only** investment opportunities\n\n> "Where fortunes are made and legends are born" - *Forbes Magazine*'
     ),
     createEventConfig(
       'crimson-society',
@@ -99,7 +99,7 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
       'linear-gradient(135deg, #1a0a0a 0%, #2d1515 50%, #3d2020 100%)',
       'rgba(212, 55, 55, 0.3)',
       'Formal wear with red accents',
-      'A night of intensity and sophistication. Experience luxury beyond imagination where passion meets power in the city\'s most prestigious venue.'
+      'A night of **intensity and sophistication**. Experience luxury beyond imagination where passion meets power in the city\'s most prestigious venue.\n\n**Experience Highlights:**\n- Underground speakeasy access\n- Live jazz performance by *Grammy Award winners*\n- Signature crimson cocktails\n- High-stakes poker tournament\n- Rooftop cigar lounge with city views\n\n*Where passion ignites and power converges.*'
     ),
     createEventConfig(
       'sapphire-summit',
@@ -114,7 +114,7 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
       'linear-gradient(135deg, #0a0f1a 0%, #152030 50%, #1f2a3a 100%)',
       'rgba(55, 118, 212, 0.3)',
       'Business formal',
-      'The pinnacle of exclusive networking. Connect with tomorrow\'s leaders today in a space where cutting-edge innovation meets timeless tradition.'
+      'The **pinnacle of exclusive networking**. Connect with tomorrow\'s leaders today in a space where cutting-edge innovation meets timeless tradition.\n\n**Summit Features:**\n- *Tech innovation* showcases\n- Startup pitch competitions\n- **Venture capital** roundtables\n- AI and blockchain workshops\n- Private helicopter arrivals available\n\n## The Future Starts Here\n*Join visionaries, disruptors, and industry leaders shaping tomorrow.*'
     )
   ]);
 };
