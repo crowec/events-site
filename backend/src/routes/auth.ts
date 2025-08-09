@@ -88,7 +88,7 @@ router.post('/login', authValidation, async (req: Request, res: Response) => {
   }
 });
 
-router.post('/verify', async (req: Request, res: Response) => {
+router.get('/verify', async (req: Request, res: Response) => {
   try {
     const authHeader = req.headers.authorization;
     

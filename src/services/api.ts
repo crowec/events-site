@@ -114,6 +114,16 @@ class ApiService {
     return this.token !== null;
   }
 
+  async getRSVPs(eventId: string): Promise<{ rsvps: any[]; counts: any }> {
+    try {
+      const response = await this.makeRequest<{ rsvps: any[]; counts: any }>(`/rsvp/${eventId}`);
+      return response;
+    } catch (error) {
+      console.error('Get RSVPs error:', error);
+      throw error;
+    }
+  }
+
   private parseExpiresIn(expiresIn: string): number {
     const match = expiresIn.match(/(\d+)([hm])/);
     if (!match) return 3600000; // 1 hour default

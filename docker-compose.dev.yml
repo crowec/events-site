@@ -11,6 +11,7 @@ services:
       - ./backend/package.json:/app/package.json:ro
       - ./backend/package-lock.json:/app/package-lock.json:ro
       - ./backend/tsconfig.json:/app/tsconfig.json:ro
+      - ./backend/data:/app/data
     environment:
       - NODE_ENV=development
       - JWT_SECRET=${JWT_SECRET}

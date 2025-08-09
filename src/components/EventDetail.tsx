@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './EventDetail.css'
 import MarkdownContent from './MarkdownContent'
+import RSVPButton from './RSVPButton'
+import AttendeeList from './AttendeeList'
 
 interface Event {
   id: string
@@ -24,6 +26,7 @@ interface EventDetailProps {
 
 const EventDetail = ({ event, onBackToPortal }: EventDetailProps) => {
   const [showSuccessFeedback, setShowSuccessFeedback] = useState(false)
+  const [showAttendeeList, setShowAttendeeList] = useState(false)
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       weekday: 'long',
@@ -90,6 +93,16 @@ const EventDetail = ({ event, onBackToPortal }: EventDetailProps) => {
     setTimeout(() => setShowSuccessFeedback(false), 2000)
   }
 
+  if (showAttendeeList) {
+    return (
+      <AttendeeList
+        eventId={event.id}
+        eventTitle={event.title}
+        onBack={() => setShowAttendeeList(false)}
+      />
+    )
+  }
+
   return (
     <div 
       className="event-detail-container"
@@ -135,11 +148,23 @@ const EventDetail = ({ event, onBackToPortal }: EventDetailProps) => {
       </div>
       
       <div className="floating-actions" style={{position: 'fixed', bottom: '20px', right: '20px', zIndex: 9999, padding: '20px', color: 'white'}}>
+        <RSVPButton 
+          eventId={event.id} 
+          onRSVPSubmitted={() => {
+            // Could trigger a refresh if needed
+          }} 
+        />
         <button className="add-to-calendar-btn" onClick={handleAddToCalendar} style={{color: 'white', padding: '15px', border: 'none'}}>
           <svg className="calendar-icon" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+            <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
           </svg>
           Add to Calendar
+        </button>
+        <button className="attendee-list-btn" onClick={() => setShowAttendeeList(true)} style={{color: 'white', padding: '15px', border: 'none'}}>
+          <svg className="attendee-icon" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+          </svg>
+          Attendee List
         </button>
       </div>
       
