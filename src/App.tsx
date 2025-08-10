@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
 import LoginPage from './components/LoginPage'
 import EventDetail from './components/EventDetail'
+import AttendeeListPage from './components/AttendeeListPage'
 import LoadingSpinner from './components/LoadingSpinner'
 import apiService, { Event } from './services/api'
 
@@ -60,7 +62,15 @@ function App() {
     return <LoginPage onLogin={handleLogin} error={error} />
   }
 
-  return <EventDetail event={authenticatedEvent} onBackToPortal={handleBackToPortal} />
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<EventDetail event={authenticatedEvent} onBackToPortal={handleBackToPortal} />} />
+        <Route path="/attendees" element={<AttendeeListPage event={authenticatedEvent} onBack={() => window.location.href = '/'} />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
+  )
 }
 
 export default App

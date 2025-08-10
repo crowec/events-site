@@ -1,6 +1,4 @@
 import sqlite3 from 'sqlite3';
-import path from 'path';
-import fs from 'fs';
 
 export interface RSVP {
   id: number;
@@ -22,16 +20,9 @@ class DatabaseService {
   private isInitialized: boolean = false;
 
   constructor(dbPath?: string) {
-    const defaultPath = path.join(process.cwd(), 'data', 'rsvps.db');
-    const finalPath = dbPath || defaultPath;
+    const defaultPath = dbPath || '/tmp/rsvps.db';
     
-    // Ensure directory exists
-    const dbDir = path.dirname(finalPath);
-    if (!fs.existsSync(dbDir)) {
-      fs.mkdirSync(dbDir, { recursive: true });
-    }
-    
-    this.db = new sqlite3.Database(finalPath);
+    this.db = new sqlite3.Database(defaultPath);
     this.initializeDatabase();
   }
 

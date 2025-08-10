@@ -38,8 +38,8 @@ const RSVPButton = ({ eventId, onRSVPSubmitted }: RSVPButtonProps) => {
         throw new Error(errorData.error || 'Failed to submit RSVP')
       }
 
-      const data = await response.json()
-      setMessage(`RSVP submitted successfully! Total responses: ${data.counts.total}`)
+      await response.json()
+      setMessage('RSVP submitted successfully!')
       setGuestName('')
       setShowModal(false)
       onRSVPSubmitted?.()
