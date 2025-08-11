@@ -4,16 +4,11 @@ const API_BASE_URL =
 export interface Event {
     id: string;
     title: string;
-    description: string;
     date: string;
     time: string;
     location: string;
-    theme: 'dark' | 'gold' | 'red' | 'blue';
-    backgroundImage?: string;
-    fontFamily?: string;
-    backgroundColor?: string;
-    dress_code?: string;
-    details?: string;
+    theme: string;
+    description?: string;
 }
 
 export interface LoginResponse {

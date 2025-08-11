@@ -276,40 +276,29 @@
 }
 
 .backButton {
-    /* background: transparent;
-    border: 10px solid rgba(255, 13, 13, 0.3);
-    color: rgba(255, 255, 255, 0.8);
-    padding: 0.8rem 1.5rem;
-    cursor: pointer;
-    font-family: inherit;
-    font-size: 0.9rem;
-    margin-bottom: 3rem;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.05em; */
-    background: var(--theme-secondary, #ffff00);
-    border: 2px solid var(--theme-primary, #ff0e0e);
-
-}
-
-
-/* .backButton {
-    display: inline-block;
+    background: transparent;
+    border: 1px solid var(--theme-primary, #fff);
     color: var(--theme-primary, #fff);
-    text-decoration: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: var(--theme-font, inherit);
     font-size: 14px;
     margin-bottom: 20px;
-    padding: 8px 16px;
-    border: 2px solid var(--theme-primary, #fff);
-    border-radius: 4px;
     transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    font-weight: 600;
 }
 
 .backButton:hover {
     background: var(--theme-primary, #fff);
     color: var(--theme-background, #000);
-    box-shadow: 0 0 10px var(--theme-primary, #fff);
-} */
+    box-shadow: 0 0 20px var(--theme-primary, #fff);
+    transform: translateY(-2px);
+}
+
 
 .title {
     font-size: 3.5rem;
@@ -459,8 +448,4 @@
         font-size: 1.5rem;
     }
 
-    .rsvpButton {
-        padding: 12px 30px;
-        font-size: 1rem;
-    }
 }

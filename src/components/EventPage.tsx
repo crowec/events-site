@@ -27,7 +27,6 @@ const formatDate = (dateString: string) => {
     });
 };
 
-
 const EventPage = ({ event, onBackToPortal }: EventDetailProps) => {
     return (
         <div className={`${styles.container} theme-${event.theme}`}>
@@ -51,7 +50,7 @@ const EventPage = ({ event, onBackToPortal }: EventDetailProps) => {
 
             <div className={styles.content}>
                 <header className={styles.header}>
-                    <button className="backButton" onClick={onBackToPortal}>
+                    <button className={styles.backButton} onClick={onBackToPortal}>
                         ← Back to Portal
                     </button>
 
@@ -71,23 +70,18 @@ const EventPage = ({ event, onBackToPortal }: EventDetailProps) => {
                     <div className={styles.infoGrid}>
                         <div className={styles.infoCard}>
                             <h3>📅 Date</h3>
-                            <p>
-                               {formatDate(event.date)}
-                            </p>
+                            <p>{formatDate(event.date)}</p>
                         </div>
 
                         <div className={styles.infoCard}>
                             <h3>⏳ Time</h3>
-                            <p>
-                               {event.time}
-                            </p>
+                            <p>{event.time}</p>
                         </div>
 
                         <div className={styles.infoCard}>
                             <h3>📍 Location</h3>
                             <p>{event.location}</p>
                         </div>
-
                     </div>
                 </div>
             </div>
