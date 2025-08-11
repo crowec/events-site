@@ -50,7 +50,10 @@ const EventPage = ({ event, onBackToPortal }: EventDetailProps) => {
 
             <div className={styles.content}>
                 <header className={styles.header}>
-                    <button className={styles.backButton} onClick={onBackToPortal}>
+                    <button
+                        className={styles.backButton}
+                        onClick={onBackToPortal}
+                    >
                         ← Back to Portal
                     </button>
 

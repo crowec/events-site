@@ -14,8 +14,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                 time: '15:30 - 23:00',
                 location: 'SOMEWHERE',
                 theme: 'birthday',
-                description:
-                     `# Welcome to Connie-con 2025! 🎉
+                description: `# Welcome to Connie-con 2025! 🎉
 
 ## What to Expect
 

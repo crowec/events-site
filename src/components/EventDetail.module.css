@@ -83,7 +83,6 @@
     transform: translateY(-2px);
 }
 
-
 .title {
     font-size: 3.5rem;
     font-weight: 900;
@@ -231,5 +230,4 @@
     .markdown h2 {
         font-size: 1.5rem;
     }
-
 }
