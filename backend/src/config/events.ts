@@ -109,7 +109,7 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
             'Business formal',
             "The pinnacle of exclusive networking. Connect with tomorrow's leaders today in a space where cutting-edge innovation meets timeless tradition."
         ),
-         createEventConfig(
+        createEventConfig(
             'connie-30',
             'Connie-con',
             '2025-10-04',

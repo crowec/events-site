@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import LoginPage from './components/LoginPage';
-import EventDetail from './components/EventDetail';
+import EventPage from './components/EventPage';
 import LoadingSpinner from './components/LoadingSpinner';
 import apiService, { Event } from './services/api';
 
@@ -64,7 +64,7 @@ function App() {
     }
 
     return (
-        <EventDetail
+        <EventPage
             event={authenticatedEvent}
             onBackToPortal={handleBackToPortal}
         />

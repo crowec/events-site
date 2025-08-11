@@ -10,12 +10,8 @@ interface Event {
     date: string;
     time: string;
     location: string;
-    backgroundImage?: string;
-    fontFamily?: string;
-    backgroundColor?: string;
-    containerBackgroundColor?: string;
-    dressCode?: string;
-    details?: string;
+    theme: string;
+    description?: string;
 }
 
 interface EventDetailProps {
@@ -23,46 +19,67 @@ interface EventDetailProps {
     onBackToPortal: () => void;
 }
 
+const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+};
 
-const EventDetail = ({ event, onBackToPortal }: EventDetailProps) => {
 
+const EventPage = ({ event, onBackToPortal }: EventDetailProps) => {
     return (
-        <div className={`${styles.container} theme-birthday`}>
+        <div className={`${styles.container} theme-${event.theme}`}>
             <div className={`${styles.background} background`}>
-               
-                {/* Birthday stars */}
-                    <div className="star-field">
-                        {Array.from({ length: 150 }).map((_, i) => (
-                            <div
-                                key={i}
-                                className="star"
-                                style={{
-                                    left: `${Math.random() * 100}%`,
-                                    top: `${Math.random() * 100}%`,
-                                    animationDelay: `${Math.random() * 3}s`,
-                                    animationDuration: `${2 + Math.random() * 2}s`,
-                                }}
-                            />
-                        ))}
-                    </div>
-                
+                {/* stars */}
+                <div className="star-field">
+                    {Array.from({ length: 150 }).map((_, i) => (
+                        <div
+                            key={i}
+                            className="star"
+                            style={{
+                                left: `${Math.random() * 100}%`,
+                                top: `${Math.random() * 100}%`,
+                                animationDelay: `${Math.random() * 3}s`,
+                                animationDuration: `${2 + Math.random() * 2}s`,
+                            }}
+                        />
+                    ))}
+                </div>
             </div>
 
             <div className={styles.content}>
                 <header className={styles.header}>
                     <button className="backButton" onClick={onBackToPortal}>
-                     ← Back to Portal
+                        ← Back to Portal
                     </button>
 
                     <h1 className={`${styles.title} title`}>{event.title}</h1>
                 </header>
 
                 <div className={`${styles.eventDetails} event-details`}>
+                    <div className={styles.description}>
+                        <ReactMarkdown
+                            remarkPlugins={[remarkGfm]}
+                            rehypePlugins={[rehypeSanitize]}
+                            className={styles.markdown}
+                        >
+                            {event.description}
+                        </ReactMarkdown>
+                    </div>
                     <div className={styles.infoGrid}>
                         <div className={styles.infoCard}>
-                            <h3>📅 Date & Time</h3>
+                            <h3>📅 Date</h3>
                             <p>
-                                {event.date} at {event.time}
+                               {formatDate(event.date)}
+                            </p>
+                        </div>
+
+                        <div className={styles.infoCard}>
+                            <h3>⏳ Time</h3>
+                            <p>
+                               {event.time}
                             </p>
                         </div>
 
@@ -71,47 +88,28 @@ const EventDetail = ({ event, onBackToPortal }: EventDetailProps) => {
                             <p>{event.location}</p>
                         </div>
 
-                        {event.dressCode && (
-                            <div className={styles.infoCard}>
-                                <h3>👔 Dress Code</h3>
-                                <p>{event.dressCode}</p>
-                            </div>
-                        )}
                     </div>
-
-                    <div className={styles.description}>
-                        <ReactMarkdown
-                            remarkPlugins={[remarkGfm]}
-                            rehypePlugins={[rehypeSanitize]}
-                            className={styles.markdown}
-                        >
-                            {event.details}
-                        </ReactMarkdown>
-                    </div>
-
-            
-                
                 </div>
             </div>
         </div>
     );
 };
 
-export default EventDetail;
+export default EventPage;
 
 // const EventDetail = ({ event, onBackToPortal }: EventDetailProps) => {
-//     const formatDate = (dateString: string) => {
-//         return new Date(dateString).toLocaleDateString('en-US', {
-//             year: 'numeric',
-//             month: 'long',
-//             day: 'numeric',
-//         });
-//     };
+// const formatDate = (dateString: string) => {
+//     return new Date(dateString).toLocaleDateString('en-US', {
+//         year: 'numeric',
+//         month: 'long',
+//         day: 'numeric',
+//     });
+// };
 
-//     const formatDateTime = (dateString: string, timeString: string) => {
-//         const formattedDate = formatDate(dateString);
-//         return `${formattedDate}, ${timeString}`;
-//     };
+// const formatDateTime = (dateString: string, timeString: string) => {
+//     const formattedDate = formatDate(dateString);
+//     return `${formattedDate}, ${timeString}`;
+// };
 
 //     const containerStyle = {
 //         background: event.backgroundColor || undefined,
@@ -152,7 +150,7 @@ export default EventDetail;
 //                         ))}
 //                     </div>
 //             )}
-            
+
 //             <div className="event-overlay">
 //                 <button className="back-button" onClick={onBackToPortal}>
 //                     ← Back to Portal

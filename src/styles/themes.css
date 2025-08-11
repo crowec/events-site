@@ -2,75 +2,78 @@
 
 /* Birthday Theme */
 .theme-birthday {
-  --theme-primary: #d4af37;
-  --theme-secondary: #ff69b4;
-  --theme-background: #1a0f2e;
-  --theme-font: 'Playfair Display', serif;
+    --theme-primary: #ffffff;
+    --theme-secondary: #ab9ae2;
+    --theme-background: #070115;
+    --theme-font: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 .theme-birthday .background {
-  background: var(--theme-background);
+    background: var(--theme-background);
 }
 
 .theme-birthday .title {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  text-shadow: 0 0 20px var(--theme-secondary);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-style: bold;
+    text-shadow: 0 0 25px var(--theme-secondary);
 }
 
 .theme-birthday .star-field {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 .theme-birthday .star {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  background: var(--theme-secondary);
-  border-radius: 50%;
-  box-shadow: 
-    0 0 6px var(--theme-secondary),
-    0 0 12px var(--theme-secondary),
-    0 0 18px var(--theme-secondary);
-  animation: twinkle linear infinite;
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--theme-secondary);
+    border-radius: 50%;
+    box-shadow:
+        0 0 6px var(--theme-secondary),
+        0 0 12px var(--theme-secondary),
+        0 0 18px var(--theme-secondary);
+    animation: twinkle linear infinite;
 }
 
 .theme-birthday .star:nth-child(3n) {
-  width: 1px;
-  height: 1px;
-  box-shadow: 
-    0 0 4px var(--theme-primary),
-    0 0 8px var(--theme-primary);
+    width: 1px;
+    height: 1px;
+    box-shadow:
+        0 0 4px var(--theme-primary),
+        0 0 8px var(--theme-primary);
 }
 
 .theme-birthday .star:nth-child(5n) {
-  width: 3px;
-  height: 3px;
-  box-shadow: 
-    0 0 8px var(--theme-secondary),
-    0 0 16px var(--theme-secondary),
-    0 0 24px var(--theme-secondary);
+    width: 3px;
+    height: 3px;
+    box-shadow:
+        0 0 8px var(--theme-secondary),
+        0 0 16px var(--theme-secondary),
+        0 0 24px var(--theme-secondary);
 }
 
 @keyframes twinkle {
-  0%, 100% { 
-    opacity: 0.3;
-    transform: scale(0.8);
-  }
-  50% { 
-    opacity: 1;
-    transform: scale(1.2);
-  }
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
 }
 
 .theme-birthday .event-details {
-  background: linear-gradient(135deg, 
-    rgba(139, 0, 0, 0.2), 
-    rgba(255, 215, 0, 0.1));
-  border: 2px solid var(--theme-secondary);
+    background: linear-gradient(
+        135deg,
+        rgba(195, 160, 222, 0.2),
+        rgba(0, 0, 0, 0.1)
+    );
+    border: 2px solid var(--theme-secondary);
 }

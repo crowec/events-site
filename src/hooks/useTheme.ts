@@ -8,7 +8,6 @@ interface ThemeConfig {
     effects: string[];
 }
 
-
 export const useTheme = (themeConfig: ThemeConfig) => {
     useEffect(() => {
         const root = document.documentElement;
