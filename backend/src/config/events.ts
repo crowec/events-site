@@ -8,7 +8,7 @@ export interface EventConfig {
     location: string;
     theme: string;
     passwordHash: string;
-    description?: string | undefined;
+    description: string | undefined;
 }
 
 const SALT_ROUNDS = 12;
@@ -25,7 +25,7 @@ export const createEventConfig = async (
     location: string,
     theme: string,
     password: string,
-    description?: string
+    description: string
 ): Promise<EventConfig> => {
     return {
         id,
@@ -89,7 +89,27 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
             'SOMEWHERE',
             'birthday',
             'ohshitsheold',
-            "The pinnacle of exclusive networking. Connect with tomorrow's leaders today in a space where cutting-edge innovation meets timeless tradition."
+            `# Welcome to Connie-con 2025! 🎉
+
+## What to Expect
+
+**An unforgettable celebration** featuring:
+
+- **Live Entertainment** and music
+- **Gourmet Food & Drinks** 
+- **Interactive Games** and activities
+- **Special Surprises** throughout the night
+
+### Schedule
+- **3:30 PM** - Doors open
+- **4:00 PM** - Welcome drinks
+- **6:00 PM** - Dinner service
+- **8:00 PM** - Entertainment begins
+- **11:00 PM** - Late night festivities
+
+> *"A night where cutting-edge innovation meets timeless tradition."*
+
+**Dress Code**: Smart casual to fabulous ✨`
         ),
     ]);
 };

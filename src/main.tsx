@@ -15,7 +15,27 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                 location: 'SOMEWHERE',
                 theme: 'birthday',
                 description:
-                    '#bob\n The pinnacn a space where cutting-edge innovation meets timeless tradition.',
+                     `# Welcome to Connie-con 2025! 🎉
+
+## What to Expect
+
+**An unforgettable celebration** featuring:
+
+- **Live Entertainment** and music
+- **Gourmet Food & Drinks** 
+- **Interactive Games** and activities
+- **Special Surprises** throughout the night
+
+### Schedule
+- **3:30 PM** - Doors open
+- **4:00 PM** - Welcome drinks
+- **6:00 PM** - Dinner service
+- **8:00 PM** - Entertainment begins
+- **11:00 PM** - Late night festivities
+
+> *"A night where cutting-edge innovation meets timeless tradition."*
+
+**Dress Code**: Smart casual to fabulous ✨`,
             }}
             onBackToPortal={handleBackToPortal}
         />

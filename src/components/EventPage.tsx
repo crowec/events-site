@@ -11,7 +11,7 @@ interface Event {
     time: string;
     location: string;
     theme: string;
-    description?: string;
+    description: string;
 }
 
 interface EventDetailProps {

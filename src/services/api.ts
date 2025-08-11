@@ -8,7 +8,7 @@ export interface Event {
     time: string;
     location: string;
     theme: string;
-    description?: string;
+    description: string;
 }
 
 export interface LoginResponse {
