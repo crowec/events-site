@@ -3,7 +3,6 @@ import bcrypt from 'bcrypt';
 export interface EventConfig {
     id: string;
     title: string;
-    description: string;
     date: string;
     time: string;
     location: string;
@@ -25,7 +24,6 @@ const hashPassword = async (password: string): Promise<string> => {
 export const createEventConfig = async (
     id: string,
     title: string,
-    description: string,
     date: string,
     time: string,
     location: string,
@@ -40,7 +38,6 @@ export const createEventConfig = async (
     return {
         id,
         title,
-        description,
         date,
         time,
         location,
@@ -59,7 +56,6 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
         createEventConfig(
             'midnight-gala',
             'Midnight Gala',
-            'An exclusive evening of mystery and elegance',
             '2024-09-15',
             '23:00',
             'The Obsidian Ballroom',
@@ -74,7 +70,6 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
         createEventConfig(
             'golden-circle',
             'The Golden Circle',
-            'Where legends are born and fortunes made',
             '2024-10-01',
             '20:00',
             'Private Residence',
@@ -89,7 +84,6 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
         createEventConfig(
             'crimson-society',
             'Crimson Society',
-            'Passion, power, and prestige collide',
             '2024-10-20',
             '21:30',
             'The Ruby Chamber',
@@ -104,7 +98,6 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
         createEventConfig(
             'sapphire-summit',
             'Sapphire Summit',
-            'Where innovation meets tradition',
             '2024-11-10',
             '19:00',
             'Crystal Tower Penthouse',
@@ -113,6 +106,20 @@ export const initializeEvents = async (): Promise<EventConfig[]> => {
             '"Montserrat", sans-serif',
             'linear-gradient(135deg, #0a0f1a 0%, #152030 50%, #1f2a3a 100%)',
             'rgba(55, 118, 212, 0.3)',
+            'Business formal',
+            "The pinnacle of exclusive networking. Connect with tomorrow's leaders today in a space where cutting-edge innovation meets timeless tradition."
+        ),
+         createEventConfig(
+            'connie-30',
+            'Connie-con',
+            '2025-10-04',
+            '15:30 - 23:00',
+            'SOMEWHERE',
+            'ohshitsheold',
+            '',
+            '"Montserrat", sans-serif',
+            'linear-gradient(135deg, #1251d9ff 0%, #991f9dff 50%, #cbd414ff 100%)',
+            'rgba(255, 255, 255, 1)',
             'Business formal',
             "The pinnacle of exclusive networking. Connect with tomorrow's leaders today in a space where cutting-edge innovation meets timeless tradition."
         ),
