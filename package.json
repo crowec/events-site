@@ -27,7 +27,7 @@
         "vite": "^4.4.5"
     },
     "scripts": {
-        "predeploy": "npm run build",
+        "predeploy": "GITHUB_PAGES=true npm run build",
         "deploy": "gh-pages -d dist",
         "dev": "vite",
         "build": "tsc && vite build",

@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
     plugins: [react()],
-    base: '/events-site/',
+    base: process.env.NODE_ENV === 'production' && process.env.GITHUB_PAGES ? '/events-site/' : '/',
     build: {
         outDir: 'dist',
         assetsDir: 'assets',
