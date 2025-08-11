@@ -1,16 +1,11 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(npm install)",
-      "Bash(docker compose:*)",
-      "Bash(mkdir:*)",
-      "Bash(curl:*)",
-      "Bash(npm install:*)",
-      "Bash(npm test)",
-      "Bash(docker-compose build:*)",
-      "Bash(docker-compose:*)",
-      "Bash(docker-compose up:*)"
-    ],
-    "deny": []
-  }
+    "permissions": {
+        "allow": [
+            "Bash(npm install)",
+            "Bash(docker compose:*)",
+            "Bash(mkdir:*)",
+            "Bash(curl:*)"
+        ],
+        "deny": []
+    }
 }

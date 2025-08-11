@@ -1,120 +1,115 @@
 import bcrypt from 'bcrypt';
 
 export interface EventConfig {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  time: string;
-  location: string;
-  passwordHash: string;
-  backgroundImage?: string | undefined;
-  fontFamily?: string | undefined;
-  backgroundColor?: string | undefined;
-  containerBackgroundColor?: string | undefined;
-  dress_code?: string | undefined;
-  details?: string | undefined;
+    id: string;
+    title: string;
+    date: string;
+    time: string;
+    location: string;
+    theme: string;
+    passwordHash: string;
+    description: string | undefined;
 }
 
 const SALT_ROUNDS = 12;
 
 const hashPassword = async (password: string): Promise<string> => {
-  return await bcrypt.hash(password, SALT_ROUNDS);
+    return await bcrypt.hash(password, SALT_ROUNDS);
 };
 
 export const createEventConfig = async (
-  id: string,
-  title: string,
-  description: string,
-  date: string,
-  time: string,
-  location: string,
-  password: string,
-  backgroundImage?: string,
-  fontFamily?: string,
-  backgroundColor?: string,
-  containerBackgroundColor?: string,
-  dress_code?: string,
-  details?: string
+    id: string,
+    title: string,
+    date: string,
+    time: string,
+    location: string,
+    theme: string,
+    password: string,
+    description: string
 ): Promise<EventConfig> => {
-  return {
-    id,
-    title,
-    description,
-    date,
-    time,
-    location,
-    passwordHash: await hashPassword(password),
-    backgroundImage,
-    fontFamily,
-    backgroundColor,
-    containerBackgroundColor,
-    dress_code,
-    details
-  };
+    return {
+        id,
+        title,
+        date,
+        time,
+        location,
+        theme,
+        passwordHash: await hashPassword(password),
+        description,
+    };
 };
 
 export const initializeEvents = async (): Promise<EventConfig[]> => {
-  return Promise.all([
-    createEventConfig(
-      'midnight-gala',
-      'Midnight Gala',
-      'An exclusive evening of mystery and elegance',
-      '2024-09-15',
-      '23:00',
-      'The Obsidian Ballroom',
-      'shadows',
-      'https://images.unsplash.com/photo-1566737236500-c8ac43014a8e?w=1920&h=1080&fit=crop&crop=center',
-      '"Playfair Display", serif',
-      'linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%)',
-      'rgba(0, 0, 0, 0.4)',
-      'Black tie required',
-      'Join us for an **unforgettable night** where shadows dance with light. An evening of timeless elegance in the city\'s most exclusive ballroom.\n\n**What to Expect:**\n- Champagne reception with signature cocktails\n- Live classical quartet performance\n- Five-course tasting menu by *Michelin-starred chef*\n- Exclusive networking with distinguished guests\n\n*Prepare to be enchanted by an evening that blurs the line between dream and reality.*'
-    ),
-    createEventConfig(
-      'golden-circle',
-      'The Golden Circle',
-      'Where legends are born and fortunes made',
-      '2024-10-01',
-      '20:00',
-      'Private Residence',
-      'midas',
-      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop&crop=center',
-      '"Cormorant Garamond", serif',
-      'linear-gradient(135deg, #1a1611 0%, #2d2417 50%, #3d3020 100%)',
-      'rgba(212, 175, 55, 0.3)',
-      'Cocktail attire in gold tones',
-      'An **intimate gathering** for the elite. Network with industry titans and visionaries in an atmosphere of refined luxury and golden splendor.\n\n**Exclusive Features:**\n- *Private wine cellar* tastings\n- Curated art collection viewing\n- One-on-one mentorship sessions\n- Access to **invitation-only** investment opportunities\n\n> "Where fortunes are made and legends are born" - *Forbes Magazine*'
-    ),
-    createEventConfig(
-      'crimson-society',
-      'Crimson Society',
-      'Passion, power, and prestige collide',
-      '2024-10-20',
-      '21:30',
-      'The Ruby Chamber',
-      'phoenix',
-      'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=1920&h=1080&fit=crop&crop=center',
-      '"Cinzel", serif',
-      'linear-gradient(135deg, #1a0a0a 0%, #2d1515 50%, #3d2020 100%)',
-      'rgba(212, 55, 55, 0.3)',
-      'Formal wear with red accents',
-      'A night of **intensity and sophistication**. Experience luxury beyond imagination where passion meets power in the city\'s most prestigious venue.\n\n**Experience Highlights:**\n- Underground speakeasy access\n- Live jazz performance by *Grammy Award winners*\n- Signature crimson cocktails\n- High-stakes poker tournament\n- Rooftop cigar lounge with city views\n\n*Where passion ignites and power converges.*'
-    ),
-    createEventConfig(
-      'sapphire-summit',
-      'Sapphire Summit',
-      'Where innovation meets tradition',
-      '2024-11-10',
-      '19:00',
-      'Crystal Tower Penthouse',
-      'azure',
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&crop=center',
-      '"Montserrat", sans-serif',
-      'linear-gradient(135deg, #0a0f1a 0%, #152030 50%, #1f2a3a 100%)',
-      'rgba(55, 118, 212, 0.3)',
-      'Business formal',
-      'The **pinnacle of exclusive networking**. Connect with tomorrow\'s leaders today in a space where cutting-edge innovation meets timeless tradition.\n\n**Summit Features:**\n- *Tech innovation* showcases\n- Startup pitch competitions\n- **Venture capital** roundtables\n- AI and blockchain workshops\n- Private helicopter arrivals available\n\n## The Future Starts Here\n*Join visionaries, disruptors, and industry leaders shaping tomorrow.*'
-    )
-  ]);
+    return Promise.all([
+        createEventConfig(
+            'midnight-gala',
+            'Midnight Gala',
+            '2024-09-15',
+            '23:00',
+            'The Obsidian Ballroom',
+            'theme',
+            'shadows',
+            "Join us for an unforgettable night where shadows dance with light. An evening of timeless elegance in the city's most exclusive ballroom."
+        ),
+        createEventConfig(
+            'golden-circle',
+            'The Golden Circle',
+            '2024-10-01',
+            '20:00',
+            'Private Residence',
+            'theme',
+            'midas',
+            'An intimate gathering for the elite. Network with industry titans and visionaries in an atmosphere of refined luxury and golden splendor.'
+        ),
+        createEventConfig(
+            'crimson-society',
+            'Crimson Society',
+            '2024-10-20',
+            '21:30',
+            'The Ruby Chamber',
+            'theme',
+            'phoenix',
+            "A night of intensity and sophistication. Experience luxury beyond imagination where passion meets power in the city's most prestigious venue."
+        ),
+        createEventConfig(
+            'sapphire-summit',
+            'Sapphire Summit',
+            '2024-11-10',
+            '19:00',
+            'Crystal Tower Penthouse',
+            'theme',
+            'azure',
+            "The pinnacle of exclusive networking. Connect with tomorrow's leaders today in a space where cutting-edge innovation meets timeless tradition."
+        ),
+        createEventConfig(
+            'connie-30',
+            'Connie-con',
+            '2025-10-04',
+            '15:30 - 23:00',
+            'SOMEWHERE',
+            'birthday',
+            'ohshitsheold',
+            `# Welcome to Connie-con 2025! 🎉
+
+## What to Expect
+
+**An unforgettable celebration** featuring:
+
+- **Live Entertainment** and music
+- **Gourmet Food & Drinks** 
+- **Interactive Games** and activities
+- **Special Surprises** throughout the night
+
+### Schedule
+- **3:30 PM** - Doors open
+- **4:00 PM** - Welcome drinks
+- **6:00 PM** - Dinner service
+- **8:00 PM** - Entertainment begins
+- **11:00 PM** - Late night festivities
+
+> *"A night where cutting-edge innovation meets timeless tradition."*
+
+**Dress Code**: Smart casual to fabulous ✨`
+        ),
+    ]);
 };
