@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import compression from 'compression';
 import dotenv from 'dotenv';
 import {
     securityMiddleware,
@@ -59,6 +58,7 @@ app.use(
 // Rate limiting disabled for development
 // app.use(generalRateLimit);
 
+// Health check
 app.get('/health', (_req, res) => {
     res.json({
         status: 'healthy',
@@ -67,10 +67,20 @@ app.get('/health', (_req, res) => {
     });
 });
 
+// Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/rsvp', rsvpRoutes);
 
-app.use(notFoundHandler);
-app.use(errorHandler);
+// 404 handler
+app.use((_req, res) => {
+  res.status(404).json({ error: 'Resource not found' });
+});
+
+// Error handler
+app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+  console.error('Server error:', err);
+  res.status(500).json({ error: 'Internal server error' });
+});
 
 const startServer = async (): Promise<void> => {
     try {

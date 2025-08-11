@@ -5,6 +5,7 @@ import EventPage from './components/EventPage';
 import LoadingSpinner from './components/LoadingSpinner';
 import apiService, { Event } from './services/api';
 
+
 function App() {
     const [authenticatedEvent, setAuthenticatedEvent] = useState<Event | null>(
         null
@@ -69,6 +70,7 @@ function App() {
             onBackToPortal={handleBackToPortal}
         />
     );
+
 }
 
 export default App;
