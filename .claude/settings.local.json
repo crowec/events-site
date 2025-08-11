@@ -1,11 +1,11 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(npm install)",
-      "Bash(docker compose:*)",
-      "Bash(mkdir:*)",
-      "Bash(curl:*)"
-    ],
-    "deny": []
-  }
+    "permissions": {
+        "allow": [
+            "Bash(npm install)",
+            "Bash(docker compose:*)",
+            "Bash(mkdir:*)",
+            "Bash(curl:*)"
+        ],
+        "deny": []
+    }
 }

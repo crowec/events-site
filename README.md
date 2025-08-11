@@ -5,6 +5,7 @@ A secure, production-ready event management platform with password-protected acc
 ## ✨ Features
 
 ### 🔐 Security First
+
 - **Server-side authentication** with bcrypt password hashing (12 salt rounds)
 - **JWT tokens** with configurable expiration (default 1 hour)
 - **Rate limiting** for authentication endpoints
@@ -14,6 +15,7 @@ A secure, production-ready event management platform with password-protected acc
 - **Docker security hardening** (non-root users, read-only filesystems)
 
 ### 🎨 Beautiful UI/UX
+
 - **Minimalist homepage** with animated starfield background
 - **Custom event styling** - each event has unique fonts, backgrounds, and images
 - **Glassmorphism design** with backdrop filters and subtle animations
@@ -21,6 +23,7 @@ A secure, production-ready event management platform with password-protected acc
 - **Smooth animations** and micro-interactions
 
 ### 🏗️ Production Architecture
+
 - **Multi-service Docker setup** with separate frontend/backend containers
 - **Health checks** and container monitoring
 - **Environment variable configuration**
@@ -31,10 +34,12 @@ A secure, production-ready event management platform with password-protected acc
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Docker and Docker Compose
 - Node.js 18+ (for development)
 
 ### 1. Clone and Start
+
 ```bash
 git clone <repository-url>
 cd events-site
@@ -42,11 +47,13 @@ docker compose up --build
 ```
 
 ### 2. Access the Application
+
 - **Frontend**: http://localhost:3000
 - **Backend API**: http://localhost:3001
 - **Health Check**: http://localhost:3001/health
 
 ### 3. Test with Event Passwords
+
 - `shadows` → Midnight Gala (Dark theme)
 - `midas` → The Golden Circle (Gold theme)
 - `phoenix` → Crimson Society (Red theme)
@@ -76,7 +83,9 @@ events-site/
 ## 🛠️ Development
 
 ### Environment Variables
+
 Create a `.env` file with:
+
 ```env
 # Backend
 JWT_SECRET=your-super-secure-jwt-secret-key
@@ -90,26 +99,29 @@ REACT_APP_API_URL=http://localhost:3001/api
 ```
 
 ### Adding New Events
+
 Edit `/backend/src/config/events.ts`:
+
 ```typescript
 await createEventConfig(
-  'event-id',
-  'Event Title',
-  'Event description',
-  '2024-12-01',        // Date
-  '20:00',             // Time
-  'Event Location',
-  'dark',              // Theme (dark|gold|red|blue)
-  'secret-password',   // Access password
-  'https://image-url', // Background image (optional)
-  '"Custom Font"',     // Font family (optional)
-  'linear-gradient(...)', // Background gradient (optional)
-  'Dress code',        // Dress code (optional)
-  'Detailed description' // Event details (optional)
-)
+    'event-id',
+    'Event Title',
+    'Event description',
+    '2024-12-01', // Date
+    '20:00', // Time
+    'Event Location',
+    'dark', // Theme (dark|gold|red|blue)
+    'secret-password', // Access password
+    'https://image-url', // Background image (optional)
+    '"Custom Font"', // Font family (optional)
+    'linear-gradient(...)', // Background gradient (optional)
+    'Dress code', // Dress code (optional)
+    'Detailed description' // Event details (optional)
+);
 ```
 
 ### Development Commands
+
 ```bash
 # Start in development mode
 npm run dev              # Frontend
@@ -131,6 +143,7 @@ cd backend && npm run lint
 ## 🐳 Docker Deployment
 
 ### Production Deployment
+
 ```bash
 # Build and start
 docker compose up --build -d
@@ -147,7 +160,9 @@ docker compose up --build -d
 ```
 
 ### Environment Configuration
+
 For production, ensure you:
+
 1. Set a strong `JWT_SECRET` (min 32 characters)
 2. Configure proper `FRONTEND_URL` for CORS
 3. Set `NODE_ENV=production`
@@ -156,6 +171,7 @@ For production, ensure you:
 ## 🔒 Security Features
 
 ### Authentication Flow
+
 1. User enters password on homepage
 2. Frontend sends password to `/api/auth/login`
 3. Backend validates with bcrypt
@@ -164,6 +180,7 @@ For production, ensure you:
 6. Token expires after configured time
 
 ### Security Headers
+
 - Content Security Policy
 - X-Frame-Options: DENY
 - X-Content-Type-Options: nosniff
@@ -172,6 +189,7 @@ For production, ensure you:
 - Referrer-Policy: strict-origin-when-cross-origin
 
 ### Rate Limiting
+
 - **Auth endpoints**: 5 attempts per 15 minutes
 - **General endpoints**: 30 requests per minute
 - **IP-based** with Redis-like behavior
@@ -179,13 +197,16 @@ For production, ensure you:
 ## 🎨 Customization
 
 ### Event Themes
+
 Each event supports custom styling:
+
 - **Background Images**: High-resolution imagery from Unsplash
 - **Custom Fonts**: Google Fonts integration
 - **Color Schemes**: CSS gradients and color palettes
 - **Visual Effects**: Animations, glassmorphism, shadows
 
 ### Frontend Styling
+
 - CSS custom properties for theming
 - Responsive design with mobile-first approach
 - Smooth transitions and animations
@@ -194,11 +215,13 @@ Each event supports custom styling:
 ## 📊 Monitoring & Logging
 
 ### Health Checks
+
 - **Frontend**: `/health` endpoint
 - **Backend**: `/health` with system info
 - **Docker**: Built-in health check commands
 
 ### Logging
+
 - **Morgan** HTTP request logging
 - **Structured error logging** with context
 - **Security event logging** for audit trails
@@ -218,6 +241,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🆘 Support
 
 For issues and questions:
+
 1. Check the GitHub Issues
 2. Review the troubleshooting section
 3. Contact the maintainers
